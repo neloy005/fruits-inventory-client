@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Strawberry",
+    "image": "https://i.ibb.co/Z2kjPxd/strawberry.jpg",
+    "description": "Fresh strawberries from the farm. Stored as a bucket of every kilo. Red and sweet.",
+    "price": 693,
+    "quantity": 12,
+    "supplier": "Abir's Farm",
+    "sold": 8
+  },
+  {
+    "name": "Watermelon",
+    "image": "https://i.ibb.co/FbDrLMG/watermelon.jpg",
+    "description": "We store and sold watermelon per piece.Freshly received and stored.",
+    "price": 981,
+    "quantity": 11,
+    "supplier": "Abir's Farm",
+    "sold": 7
+  },
+  {
+    "name": "Peach",
+    "image": "https://i.ibb.co/zVSDV6C/peach.jpg",
+    "description": "Ripe and sweet peacg stored in a cage of 5 kilo. Only available in the season.",
+    "price": 716,
+    "quantity": 11,
+    "supplier": "SK Farm",
+    "sold": 7
+  },
+  {
+    "name": "Avocado",
+    "image": "https://i.ibb.co/JHd8MXv/avocado.jpg",
+    "description": "Avocado's are stored in a bucket of 2 kilo. We only keep the ripe ones.",
+    "price": 723,
+    "quantity": 14,
+    "supplier": "Avocado farm CTG",
+    "sold": 6
+  },
+  {
+    "name": "Pineapple",
+    "image": "https://i.ibb.co/fkRhm9R/pineapple.jpg",
+    "description": "Green and ripe pineapple both are in store. We store freen ones and let them ripe in the warehouse",
+    "price": 587,
+    "quantity": 13,
+    "supplier": "Sk Farm",
+    "sold": 8
+  },
+  {
+    "name": "Lemons",
+    "image": "https://i.ibb.co/vVsFMvF/lemon.jpg",
+    "description": "Fresh lemons directly from the farm get stored in our warehouse and get supplied in the shop.",
+    "price": 50,
+    "quantity": 15,
+    "supplier": "Neel's Farm",
+    "sold": 3
+  },
+  {
+    "name": "Green Grapes",
+    "image": "https://i.ibb.co/WWDx4jM/green-grape.jpg",
+    "description": "Grapes are kept in pack of kilo. We only keep fresh ones.",
+    "price": 863,
+    "quantity": 10,
+    "supplier": "Grape Shop",
+    "sold": 10
+  },
+  {
+    "name": "Black Grapes",
+    "image": "https://i.ibb.co/yPRmwbr/black-grape.jpg",
+    "description": "Grapes are kept in pack of kilo. We only keep fresh ones.",
+    "price": 971,
+    "quantity": 15,
+    "supplier": "Grape Shop",
+    "sold": 6
+  },
+  {
+    "name": "Banana",
+    "image": "https://i.ibb.co/tDG6Y8z/banana.jpg",
+    "description": "Every dozzon of banana is counted as one. And also sold 12 bananas together.",
+    "price": 588,
+    "quantity": 14,
+    "supplier": "Banana garden",
+    "sold": 8
+  },
+  {
+    "name": "Orange",
+    "image": "https://i.ibb.co/5nZ9hDr/orange.jpg",
+    "description": "Fresh sweet oranges are kept as a bucket of 5 kilo.",
+    "price": 658,
+    "quantity": 15,
+    "supplier": "AK Orange Garden",
+    "sold": 9
+  },
+  {
+    "name": "Red Apple",
+    "image": "https://i.ibb.co/vJv6ZjC/red-apple.jpg",
+    "description": "Fresh and juicy red apples, Kept as a bucket of 5 kilo. Stored nicely in the inventory.",
+    "price": 933,
+    "quantity": 14,
+    "supplier": "Apple & Apple",
+    "sold": 10
+  },
+  {
+    "name": "Green Apple",
+    "image": "https://i.ibb.co/27Y3zct/green-apple.jpg",
+    "description": "Fresh and juicy red apples, Kept as a bucket of 5 kilo. Stored nicely in the inventory.",
+    "price": 750,
+    "quantity": 12,
+    "supplier": "Apple & Apple",
+    "sold": 4
+  }
+]
