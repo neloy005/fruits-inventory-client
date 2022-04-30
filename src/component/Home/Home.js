@@ -10,6 +10,19 @@ const Home = () => {
             .then(res => res.json())
             .then(data => setFruits(data))
     }, [])
+
+    let fruitArrayForHome = [];
+    let count = 0;
+    for (const fruit of fruits) {
+        count += 1;
+        fruitArrayForHome.push(fruit);
+        if (count === 6) {
+            console.log(fruitArrayForHome);
+            break;
+        }
+    }
+
+
     return (
         <div>
             <div className='banner-container'>
@@ -21,7 +34,7 @@ const Home = () => {
 
             <h2>Inventory Overview:</h2>
             {
-                fruits.map(fruit => <Fruit
+                fruitArrayForHome.map(fruit => <Fruit
                     key={fruit._id}
                     fruit={fruit}
                 ></Fruit>)
