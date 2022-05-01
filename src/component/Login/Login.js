@@ -2,11 +2,12 @@ import React, { useRef } from 'react';
 import './Login.css';
 import google from '../../images/google.png';
 
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Loading from '../Loading/Loading';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -23,12 +24,19 @@ const Login = () => {
         error1,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const [
+        sendPasswordResetEmail,
+    ] = useSendPasswordResetEmail(auth);
+
     if (user || user1) {
         navigate('/');
     }
 
     if (error || error1) {
         errorMessage = <p style={{ 'color': 'red' }}>Error: {error?.message}{error1?.message}</p>
+    }
+    if (loading || loading1) {
+        return <Loading></Loading>
     }
     const navigateToRegister = () => {
         navigate('/register');
@@ -40,7 +48,18 @@ const Login = () => {
         const password = event.target.password.value;
         signInWithEmailAndPassword(email, password);
 
-        toast('hi from toast');
+    }
+
+    const resetPassword = async () => {
+        const email = emailRef.current.value;
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Passsword Reset Email sent');
+        }
+        else {
+            toast('Enter your email first');
+        }
+
     }
     return (
         <div className='login-container'>
@@ -53,7 +72,8 @@ const Login = () => {
                 <input className='submit-btn' type="submit" value='Login' />
             </form>
             <br />
-            <p>Forgot password?</p>
+            <p>Forgot password? <span onClick={resetPassword} style={{ 'color': 'blue', 'cursor': 'pointer' }}>Forgot password?</span></p>
+
             <p>New here? <span style={{ 'color': 'blue', 'cursor': 'pointer' }} onClick={navigateToRegister}>Register first</span></p>
             <h4>Or</h4>
             <br />
