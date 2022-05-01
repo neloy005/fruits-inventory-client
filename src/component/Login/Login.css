@@ -1,0 +1,61 @@
+.login-container {
+    min-height: 650px;
+}
+
+.login-container input:not([type="submit"]) {
+    margin-top: 10px;
+    width: 25%;
+    height: 39px;
+    border: 2px solid rgba(137, 43, 226, 0.562);
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+
+}
+
+.login-container input:not([type="submit"]):hover {
+    border-bottom: 2px solid rgb(62, 8, 113);
+}
+
+.submit-btn {
+    margin-top: 10px;
+    width: 25%;
+    height: 39px;
+    border: 2px solid blueviolet;
+    border-radius: 7px;
+    background-color: rgba(140, 58, 216, 0.704);
+    color: white;
+}
+
+.login-container input:not([type="submit"]):focus {
+    border: 2px solid blueviolet;
+    border-radius: 7px;
+    outline: none;
+}
+
+.submit-btn:hover {
+    border: 2px solid rgb(69, 8, 126);
+    background-color: rgba(137, 43, 226, 0.894);
+}
+
+.google-signin-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid blueviolet;
+    border-radius: 7px;
+    padding: 6.5px;
+    margin: auto;
+    width: 16%;
+    cursor: pointer;
+
+}
+
+.google-signin-container:hover {
+    background-color: rgba(137, 43, 226, 0.528);
+    color: white;
+}
+
+@media only screen and (max-width: 900px) {
+    .login-container input {}
+}

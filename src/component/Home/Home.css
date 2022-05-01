@@ -24,6 +24,11 @@
     left: 4%;
 }
 
+.fruit-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
 @media only screen and (max-width: 900px) {
     .tagline {
         font-size: 50px;

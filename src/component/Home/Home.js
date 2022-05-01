@@ -33,12 +33,15 @@ const Home = () => {
 
 
             <h2>Inventory Overview:</h2>
-            {
-                fruitArrayForHome.map(fruit => <Fruit
-                    key={fruit._id}
-                    fruit={fruit}
-                ></Fruit>)
-            }
+            <div className='fruit-container'>
+                {
+                    fruitArrayForHome.map(fruit => <Fruit
+                        key={fruit._id}
+                        fruit={fruit}
+                    ></Fruit>)
+                }
+            </div>
+
 
 
         </div>

@@ -1,0 +1,7 @@
+.footer-container {
+    min-height: 200px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: rgba(0, 0, 0, 0.785);
+    color: white;
+}
