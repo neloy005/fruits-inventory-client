@@ -17,7 +17,6 @@ const Home = () => {
         count += 1;
         fruitArrayForHome.push(fruit);
         if (count === 6) {
-            console.log(fruitArrayForHome);
             break;
         }
     }

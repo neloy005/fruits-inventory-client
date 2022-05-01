@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Spinner } from 'react-bootstrap';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
+import 'react-toastify/dist/ReactToastify.css';
+import Loading from '../Loading/Loading';
 
 const Register = () => {
     const [errorMessage, setErrorMessage] = useState('');
@@ -13,13 +16,17 @@ const Register = () => {
     }
 
     const [
-        createUserWithEmailAndPassword,
-        user,
-        loading,
-        error,
+        createUserWithEmailAndPassword, user, loading, error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-    const createNewUser = event => {
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+
+    // if (error || updateError) {
+    //     toast(error.message);
+    // }
+
+    const createNewUser = async (event) => {
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
@@ -31,14 +38,17 @@ const Register = () => {
         else {
             setErrorMessage('');
         }
-        createUserWithEmailAndPassword(email, password);
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName: name });
+        navigate('/');
+
     }
 
-    if (user) {
-        navigate('/');
-    }
+    // if (user) {
+    //     toast('email varification sent');
+    // }
     if (loading) {
-        return <Spinner animation="border" variant="success" />
+        return <Loading></Loading>
     }
 
 
@@ -57,6 +67,7 @@ const Register = () => {
             <br />
             <p>Already registered? <span style={{ 'color': 'blue', 'cursor': 'pointer' }} onClick={navigateToLogin}>Login</span></p>
             <br />
+            <ToastContainer />
         </div>
     );
 };
