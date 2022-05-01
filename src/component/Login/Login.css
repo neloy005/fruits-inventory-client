@@ -56,6 +56,20 @@
     color: white;
 }
 
-@media only screen and (max-width: 900px) {
-    .login-container input {}
+@media only screen and (max-width: 488px) {
+    .login-container {
+        min-height: 550px;
+    }
+
+    .login-container input:not([type="submit"]) {
+        width: 80%;
+    }
+
+    .login-container input {
+        width: 80%;
+    }
+
+    .google-signin-container {
+        width: 60%;
+    }
 }

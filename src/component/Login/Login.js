@@ -22,9 +22,9 @@ const Login = () => {
             <h2>Login to 🍉Fruits🍋</h2>
 
             <form>
-                <input type="text" name='email' placeholder='Enter e-mail' required /> <br />
+                <input type="text" name='email' placeholder='Enter email' required /> <br />
                 <input type="password" name='password' placeholder='Enter password' required /> <br />
-                <input className='submit-btn' type="submit" />
+                <input className='submit-btn' type="submit" value='Login' />
             </form>
             <br />
             <p>Forgot password?</p>
