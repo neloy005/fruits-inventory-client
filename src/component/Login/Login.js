@@ -3,7 +3,7 @@ import './Login.css';
 import google from '../../images/google.png';
 
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,6 +13,9 @@ const Login = () => {
     const emailRef = useRef('');
 
     let errorMessage;
+
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const navigate = useNavigate();
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -29,7 +32,7 @@ const Login = () => {
     ] = useSendPasswordResetEmail(auth);
 
     if (user || user1) {
-        navigate('/');
+        navigate(from, { replace: true });
     }
 
     if (error || error1) {
@@ -72,7 +75,7 @@ const Login = () => {
                 <input className='submit-btn' type="submit" value='Login' />
             </form>
             <br />
-            <p>Forgot password? <span onClick={resetPassword} style={{ 'color': 'blue', 'cursor': 'pointer' }}>Forgot password?</span></p>
+            <p>Forgot password? <span onClick={resetPassword} style={{ 'color': 'blue', 'cursor': 'pointer' }}>Reset Now</span></p>
 
             <p>New here? <span style={{ 'color': 'blue', 'cursor': 'pointer' }} onClick={navigateToRegister}>Register first</span></p>
             <h4>Or</h4>

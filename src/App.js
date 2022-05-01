@@ -7,7 +7,7 @@ import NotFound from './component/NotFound/NotFound';
 import InventoryManagement from './component/InventoryManagement/InventoryManagement';
 import Footer from './component/Footer/Footer';
 import Register from './component/Register/Register';
-import { ToastContainer } from 'react-toastify';
+import RequireAuth from './component/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -19,7 +19,11 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
-        <Route path='/inventory/:id' element={<InventoryManagement></InventoryManagement>}></Route>
+        <Route path='/inventory/:id' element={
+          <RequireAuth>
+            <InventoryManagement></InventoryManagement>
+          </RequireAuth>
+        }></Route>
       </Routes>
 
       <Footer></Footer>
