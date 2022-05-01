@@ -13,6 +13,10 @@ const Login = () => {
     if (user) {
         navigate('/');
     }
+
+    const navigateToRegister = () => {
+        navigate('/register');
+    }
     return (
         <div className='login-container'>
             <h2>Login to 🍉Fruits🍋</h2>
@@ -24,7 +28,7 @@ const Login = () => {
             </form>
             <br />
             <p>Forgot password?</p>
-            <p>New here? <span>Register first</span></p>
+            <p>New here? <span style={{ 'color': 'blue', 'cursor': 'pointer' }} onClick={navigateToRegister}>Register first</span></p>
             <h4>Or</h4>
             <br />
             <div className='google-signin-container' onClick={() => signInWithGoogle()}>
