@@ -8,6 +8,7 @@ import InventoryManagement from './component/InventoryManagement/InventoryManage
 import Footer from './component/Footer/Footer';
 import Register from './component/Register/Register';
 import RequireAuth from './component/RequireAuth/RequireAuth';
+import ManageFullInventory from './component/ManageFullInventory/ManageFullInventory';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <InventoryManagement></InventoryManagement>
           </RequireAuth>
         }></Route>
+        <Route path='/manageinventory' element={<ManageFullInventory></ManageFullInventory>}></Route>
       </Routes>
 
       <Footer></Footer>

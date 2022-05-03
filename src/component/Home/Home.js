@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import banner from '../../images/fruits1.jpg';
 import Fruit from '../Fruit/Fruit';
 import './Home.css'
 
 const Home = () => {
+    const navigate = useNavigate();
+
     const [fruits, setFruits] = useState([]);
     useEffect(() => {
         fetch('http://localhost:5000/fruit')
@@ -19,6 +22,10 @@ const Home = () => {
         if (count === 6) {
             break;
         }
+    }
+
+    const navigateToManageInventory = () => {
+        navigate('/manageinventory');
     }
 
 
@@ -40,6 +47,7 @@ const Home = () => {
                     ></Fruit>)
                 }
             </div>
+            <button onClick={navigateToManageInventory}>Manage Inventory</button>
 
 
 

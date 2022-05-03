@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -8,6 +8,7 @@ const InventoryManagement = () => {
     const [fruit, setFruit] = useState({});
     const [fruitCount, setFruitCount] = useState(0)
     const [error, setError] = useState('')
+    const navigate = useNavigate();
 
     useEffect(() => {
         const url = `http://localhost:5000/fruit/${id}`;
@@ -78,6 +79,9 @@ const InventoryManagement = () => {
         }
 
     }
+    const navigateToManageInventory = () => {
+        navigate('/manageinventory');
+    }
 
 
     return (
@@ -91,6 +95,7 @@ const InventoryManagement = () => {
                 <p style={{ 'color': 'red' }}>{error}</p>
                 <input type="submit" value="Restock" />
             </form>
+            <button onClick={navigateToManageInventory}>Manage Inventory</button>
             <ToastContainer
                 position="top-center"
                 autoClose={5000}
