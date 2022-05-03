@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
+import { toast, ToastContainer } from 'react-toastify';
 import SingleFruitInTable from '../SingleFruitInTable/SingleFruitInTable';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 const ManageFullInventory = () => {
+    const navigate = useNavigate();
     const [fruits, setFruits] = useState([]);
     useEffect(() => {
         fetch('http://localhost:5000/fruit')
@@ -20,18 +24,32 @@ const ManageFullInventory = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        console.log(data);
+                        // console.log(data);
+                        toast.success('Deleted successfully!', {
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                        });
                         const remaining = fruits.filter(fruit => fruit._id !== id);
                         setFruits(remaining);
                     }
                 })
         }
     }
-
+    const handleAddNewItem = () => {
+        navigate('/addfruit');
+    }
     let count = 1;
     return (
         <div>
             <h2>All Fruits</h2>
+            <h2>You can add new items in the inventory,
+                <button onClick={handleAddNewItem}>Add New Item</button>
+            </h2>
             <div>
                 <Table striped bordered hover variant="dark">
                     <thead>
@@ -60,7 +78,17 @@ const ManageFullInventory = () => {
                 </Table>
             </div>
 
-
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
     );
 };

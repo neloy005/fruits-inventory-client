@@ -9,6 +9,7 @@ import Footer from './component/Footer/Footer';
 import Register from './component/Register/Register';
 import RequireAuth from './component/RequireAuth/RequireAuth';
 import ManageFullInventory from './component/ManageFullInventory/ManageFullInventory';
+import AddFruit from './component/AddFruit/AddFruit';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           </RequireAuth>
         }></Route>
         <Route path='/manageinventory' element={<ManageFullInventory></ManageFullInventory>}></Route>
+        <Route path='/addfruit' element={<AddFruit></AddFruit>}></Route>
       </Routes>
 
       <Footer></Footer>
