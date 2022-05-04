@@ -66,7 +66,6 @@ const Login = () => {
     }
     return (
         <div className='login-container'>
-            <h2>Login to 🍉Fruits🍋</h2>
 
             <form onSubmit={handleLogin}>
                 <input type="email" name='email' placeholder='Enter email' ref={emailRef} required /> <br />
