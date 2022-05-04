@@ -10,6 +10,7 @@ import Register from './component/Register/Register';
 import RequireAuth from './component/RequireAuth/RequireAuth';
 import ManageFullInventory from './component/ManageFullInventory/ManageFullInventory';
 import AddFruit from './component/AddFruit/AddFruit';
+import MyItem from './component/MyItem/MyItem';
 
 function App() {
   return (
@@ -34,6 +35,11 @@ function App() {
         <Route path='/addfruit' element={
           <RequireAuth>
             <AddFruit></AddFruit>
+          </RequireAuth>
+        }></Route>
+        <Route path='/myitem' element={
+          <RequireAuth>
+            <MyItem></MyItem>
           </RequireAuth>
         }></Route>
       </Routes>

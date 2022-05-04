@@ -13,6 +13,7 @@ const ManageFullInventory = () => {
             .then(res => res.json())
             .then(data => setFruits(data))
     }, [])
+
     const handleDeleteItem = (id) => {
         const proceed = window.confirm('Are you sure to delete?');
         if (proceed) {

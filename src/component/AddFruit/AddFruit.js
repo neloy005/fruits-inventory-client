@@ -1,7 +1,9 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
 import './AddFruit.css'
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddFruit = () => {
     const [user] = useAuthState(auth);
@@ -27,7 +29,16 @@ const AddFruit = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                toast.success('Successfully added 🍉', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+                event.target.reset();
             })
 
     }
@@ -57,6 +68,17 @@ const AddFruit = () => {
 
 
             </form>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
     );
 };
