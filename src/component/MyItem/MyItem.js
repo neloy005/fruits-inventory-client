@@ -10,13 +10,20 @@ const MyItem = () => {
     const [user] = useAuthState(auth);
     const [items, setItems] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/item')
+        const email = user?.email;
+        const url = `http://localhost:5000/item?email=${email}`;
+        fetch(url, {
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
             .then(res => res.json())
             .then(data => {
-                const newItem = data.filter(fruit => fruit.email === user.email);
-                setItems(newItem);
+                // const newItem = data.filter(fruit => fruit.email === user.email);
+                console.log(data)
+                setItems(data);
             })
-    }, [])
+    }, [user])
 
     const handleDeleteItem = (id) => {
 

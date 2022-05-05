@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Spinner } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../Loading/Loading';
+import useToken from '../../hooks/useToken';
 
 const Register = () => {
     const [errorMessage, setErrorMessage] = useState('');
@@ -20,7 +20,7 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-
+    const [token] = useToken(user);
 
     // if (error || updateError) {
     //     toast(error.message);
@@ -40,13 +40,16 @@ const Register = () => {
         }
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName: name });
-        navigate('/');
+
 
     }
 
     // if (user) {
     //     toast('email varification sent');
     // }
+    if (token) {
+        navigate('/');
+    }
     if (loading) {
         return <Loading></Loading>
     }

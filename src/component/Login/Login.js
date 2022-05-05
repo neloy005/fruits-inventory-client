@@ -8,6 +8,7 @@ import auth from '../../firebase.init';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../Loading/Loading';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -31,7 +32,13 @@ const Login = () => {
         sendPasswordResetEmail,
     ] = useSendPasswordResetEmail(auth);
 
-    if (user || user1) {
+    const [token] = useToken(user1 || user);
+
+    if (token) {
+        navigate(from, { replace: true });
+    }
+
+    if (user) {
         navigate(from, { replace: true });
     }
 
@@ -45,12 +52,11 @@ const Login = () => {
         navigate('/register');
     }
 
-    const handleLogin = event => {
+    const handleLogin = async event => {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
-        signInWithEmailAndPassword(email, password);
-
+        await signInWithEmailAndPassword(email, password);
     }
 
     const resetPassword = async () => {
