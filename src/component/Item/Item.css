@@ -1,0 +1,63 @@
+.single-item {
+    border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.432);
+    padding: 15px;
+}
+
+.single-item img {
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.single-item h4 {
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.stock-and-sold {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+.single-item h3 {
+    font-size: 34px;
+    margin-bottom: 22px;
+}
+
+.stock-and-sold h5 {
+    color: rgb(129, 81, 174);
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.dlt-item-btn {
+    width: 75%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.dlt-item-btn:hover {
+    background-color: rgba(255, 0, 0, 0.805);
+}
+
+.single-item:hover {
+    background-color: black;
+    transition: background-color 2s;
+}
+
+.single-item:hover h3 {
+    font-size: 42px;
+    transition: font-size .2s;
+}
+
+.single-item:hover img {
+    width: 95%;
+    transition: width .2s;
+}

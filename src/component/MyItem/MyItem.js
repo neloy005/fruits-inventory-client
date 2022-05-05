@@ -4,6 +4,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
 import Item from '../Item/Item';
 import 'react-toastify/dist/ReactToastify.css';
+import './MyItem.css';
 
 const MyItem = () => {
     const [user] = useAuthState(auth);
@@ -46,11 +47,11 @@ const MyItem = () => {
         }
     }
     return (
-        <div>
-            <h2>My Items: {items.length}</h2>
+        <div className='my-items-container'>
+            <h2 style={{ 'marginBottom': '50px' }}>You've added {items.length} <span style={{ 'color': 'yellow' }}>🍉Fruits🍋</span>  so far</h2>
             {
                 items.length > 0 ?
-                    <div>
+                    <div className='item-container'>
                         {
                             items.map(item => <Item
                                 key={item._id}
@@ -59,7 +60,7 @@ const MyItem = () => {
                             ></Item>)
                         }
                     </div>
-                    : <h2>You didn't add any items  yet!</h2>
+                    : <h2>You didn't add any <span style={{ 'color': 'yellow' }}>🍉Fruits🍋</span>  yet!</h2>
             }
             <ToastContainer
                 position="top-right"
