@@ -1,0 +1,99 @@
+.single-inventory-fruit {
+    border: 2px solid white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin-right: 25px;
+    margin-left: 25px;
+    background-color: #295745;
+    /* color: black; */
+}
+
+.single-inventory-fruit img {
+    width: 100%;
+    margin: auto;
+}
+
+.single-inventory-fruit .fruit-info {
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.single-inventory-fruit .delivery-and-restock {
+    margin-top: 15px;
+}
+
+.delivery-and-restock {
+    margin-bottom: 15px;
+}
+
+.delivered-btn {
+
+    width: 85%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #0F7173;
+    color: white;
+    border: none;
+    border: 1px solid white;
+    border-radius: 14px;
+    transition: color .5s ease-in-out, background-color .5s ease-in-out;
+}
+
+.delivered-btn:hover {
+    background-color: #AFD0BF;
+    color: black;
+    border: 1px solid black;
+    transition: color .5s ease-in-out, background-color .5s ease-in-out;
+}
+
+.restock-btn {
+
+    width: 85%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #18B162;
+    color: white;
+    border: none;
+    border: 1px solid white;
+    border-radius: 14px;
+    transition: color .5s ease-in-out, background-color .5s ease-in-out;
+}
+
+.restock-btn:hover {
+    background-color: #6A5ABA;
+    color: black;
+    border: 1px solid black;
+    transition: color .5s ease-in-out, background-color .5s ease-in-out;
+}
+
+.manage-inventories-btn {
+
+    width: 85%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border: 1px solid white;
+    border-radius: 14px;
+    transition: color .5s ease-in-out, background-color .5s ease-in-out;
+}
+
+.manage-inventories-btn:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    transition: color .5s ease-in-out, background-color .5s ease-in-out;
+}
+
+@media only screen and (max-width: 800px) {
+    .single-inventory-fruit {
+        grid-template-columns: repeat(1, 1fr);
+        margin-bottom: 50px;
+    }
+
+    .single-inventory-fruit img {
+        margin-bottom: 20px;
+    }
+}

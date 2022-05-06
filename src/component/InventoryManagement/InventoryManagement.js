@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './InventoryManagement.css';
 
 const InventoryManagement = () => {
     const { id } = useParams();
@@ -98,17 +99,34 @@ const InventoryManagement = () => {
 
     return (
         <div style={{ 'minHeight': '650px' }} className='single-fruit'>
-            <h2>Inventory Management: {id}</h2>
-            <p>{fruit.name}</p>
-            <p>{fruitCount}</p>
-            <button onClick={handleDecrease}>Delivered</button>
-            <p style={{ 'color': 'red' }}>{stockOut}</p>
-            <form onSubmit={handleRestock}>
-                <input type="number" name='restock' placeholder='Enter restock amount' /> <br />
-                <p style={{ 'color': 'red' }}>{error}</p>
-                <input type="submit" value="Restock" />
-            </form>
-            <button className='manage-inventories' onClick={navigateToManageInventory}>Manage Inventory</button>
+            <h2 style={{ 'marginTop': '50px', 'marginBottom': '30px' }}>Manage {fruit.name} Inventory📝:</h2>
+            <div className='single-inventory-fruit'>
+                <img src={fruit.image} alt="" />
+                <div className='fruit-info'>
+                    <h2>{fruit.name}</h2>
+                    <h3>Supplied by '{fruit.supplier}'</h3>
+                    <hr />
+                    <p style={{ 'fontSize': '20px' }}>{fruit.description}</p>
+                    <div><h2>{fruit.sold}</h2> <p>sold so far</p></div>
+
+                </div>
+                <div className='delivery-and-restock'>
+                    <div><h2>{fruitCount}</h2><p>in stock</p></div>
+
+                    <button className='delivered-btn' onClick={handleDecrease}>Delivered</button>
+                    <hr />
+                    <p style={{ 'color': 'red' }}>{stockOut}</p>
+                    <form onSubmit={handleRestock}>
+                        <input style={{ 'width': '85%', 'borderRadius': '10px', 'padding': '9px 2px', 'fontSize': '18px' }} type="number" name='restock' placeholder='Enter restock amount' /> <br />
+                        <p style={{ 'color': 'red' }}>{error}</p>
+                        <input className='restock-btn' type="submit" value="Restock" />
+                    </form>
+                    <hr />
+                    <button className='manage-inventories-btn' onClick={navigateToManageInventory}>Manage Inventory</button>
+                </div>
+            </div>
+
+
             <ToastContainer
                 position="top-center"
                 autoClose={5000}
