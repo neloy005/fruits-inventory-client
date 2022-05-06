@@ -7,8 +7,8 @@ import './InventoryManagement.css';
 const InventoryManagement = () => {
     const { id } = useParams();
     const [fruit, setFruit] = useState({});
-    const [fruitCount, setFruitCount] = useState(0)
-    const [error, setError] = useState('')
+    const [fruitCount, setFruitCount] = useState(0);
+    const [error, setError] = useState('');
     const [stockOut, setStockOut] = useState('');
     const navigate = useNavigate();
 
@@ -99,7 +99,7 @@ const InventoryManagement = () => {
 
     return (
         <div style={{ 'minHeight': '650px' }} className='single-fruit'>
-            <h2 style={{ 'marginTop': '50px', 'marginBottom': '30px' }}>Manage {fruit.name} Inventory📝:</h2>
+            <h2 style={{ 'marginTop': '50px', 'marginBottom': '30px' }}>Manage {fruit.name} Stock📝:</h2>
             <div className='single-inventory-fruit'>
                 <img src={fruit.image} alt="" />
                 <div className='fruit-info'>
@@ -107,22 +107,25 @@ const InventoryManagement = () => {
                     <h3>Supplied by '{fruit.supplier}'</h3>
                     <hr />
                     <p style={{ 'fontSize': '20px' }}>{fruit.description}</p>
-                    <div><h2>{fruit.sold}</h2> <p>sold so far</p></div>
+                    <div className='sold-and-price'>
+                        <div><h2>{fruit.sold}</h2> <p>sold so far</p></div>
+                        <div><h2>${fruit.price}</h2> <p>per item</p></div>
+                    </div>
+
 
                 </div>
                 <div className='delivery-and-restock'>
                     <div><h2>{fruitCount}</h2><p>in stock</p></div>
-
+                    <p style={{ 'color': 'red' }}>{stockOut}</p>
                     <button className='delivered-btn' onClick={handleDecrease}>Delivered</button>
                     <hr />
-                    <p style={{ 'color': 'red' }}>{stockOut}</p>
                     <form onSubmit={handleRestock}>
                         <input style={{ 'width': '85%', 'borderRadius': '10px', 'padding': '9px 2px', 'fontSize': '18px' }} type="number" name='restock' placeholder='Enter restock amount' /> <br />
                         <p style={{ 'color': 'red' }}>{error}</p>
                         <input className='restock-btn' type="submit" value="Restock" />
                     </form>
                     <hr />
-                    <button className='manage-inventories-btn' onClick={navigateToManageInventory}>Manage Inventory</button>
+                    <button className='manage-inventories-btn' onClick={navigateToManageInventory}>Manage Inventories</button>
                 </div>
             </div>
 
