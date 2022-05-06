@@ -35,7 +35,6 @@ const Home = () => {
         if (totalSupplierArr.indexOf(fruit.supplier) === -1) {
             totalSupplierArr.push(fruit.supplier);
         }
-        console.log(totalFruit);
     }
 
     const navigateToManageInventory = () => {

@@ -22,7 +22,7 @@ const Fruit = (props) => {
                     <h2>{name}</h2>
                     <h4>Supplier '{supplier}'</h4>
                     <hr />
-                    <p>{description}</p>
+                    <p>{description.slice(0, 50)}...</p>
                     <div><h5>{quantity}</h5><p>Available</p></div>
                     <div className='price-and-stock'>
                         <h5>${price}</h5>

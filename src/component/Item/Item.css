@@ -2,12 +2,14 @@
     border: 1px solid white;
     background-color: rgba(0, 0, 0, 0.432);
     padding: 15px;
+    transition: background-color 1.5s ease-in-out;
 }
 
 .single-item img {
     width: 90%;
     margin-top: 20px;
     margin-bottom: 20px;
+    transition: width .5s ease-in-out;
 }
 
 .single-item h4 {
@@ -24,6 +26,7 @@
 .single-item h3 {
     font-size: 34px;
     margin-bottom: 22px;
+    transition: font-size .5s ease-in-out;
 }
 
 .stock-and-sold h5 {
@@ -49,15 +52,15 @@
 
 .single-item:hover {
     background-color: black;
-    transition: background-color 2s;
+    transition: background-color 1.5s ease-in-out;
 }
 
 .single-item:hover h3 {
     font-size: 42px;
-    transition: font-size .2s;
+    transition: font-size .5s ease-in-out;
 }
 
 .single-item:hover img {
     width: 95%;
-    transition: width .2s;
+    transition: width .5s ease-in-out;
 }

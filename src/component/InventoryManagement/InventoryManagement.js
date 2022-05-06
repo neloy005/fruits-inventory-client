@@ -8,6 +8,7 @@ const InventoryManagement = () => {
     const [fruit, setFruit] = useState({});
     const [fruitCount, setFruitCount] = useState(0)
     const [error, setError] = useState('')
+    const [stockOut, setStockOut] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -17,14 +18,24 @@ const InventoryManagement = () => {
             .then(data => {
                 setFruit(data);
                 setFruitCount(data.quantity);
+                if (data.quantity === 0) {
+                    setStockOut('Stock Out!');
+                }
             });
     }, [])
 
 
     let quantity = fruitCount;
     const handleDecrease = () => {
+        if (quantity === 0) {
+            setStockOut('Stock Out!');
+            return;
+        }
         quantity -= 1;
         setFruitCount(quantity);
+        if (quantity === 0) {
+            setStockOut('Stock Out!');
+        }
         const decreasedQuantity = { quantity: quantity };
         const url = `http://localhost:5000/fruit/${id}`;
         fetch(url, {
@@ -49,6 +60,7 @@ const InventoryManagement = () => {
             return;
         }
         else {
+            setStockOut('');
             setError('');
             quantity = quantity + restock;
             setFruitCount(quantity);
@@ -85,17 +97,18 @@ const InventoryManagement = () => {
 
 
     return (
-        <div className='single-fruit'>
+        <div style={{ 'minHeight': '650px' }} className='single-fruit'>
             <h2>Inventory Management: {id}</h2>
             <p>{fruit.name}</p>
             <p>{fruitCount}</p>
             <button onClick={handleDecrease}>Delivered</button>
+            <p style={{ 'color': 'red' }}>{stockOut}</p>
             <form onSubmit={handleRestock}>
                 <input type="number" name='restock' placeholder='Enter restock amount' /> <br />
                 <p style={{ 'color': 'red' }}>{error}</p>
                 <input type="submit" value="Restock" />
             </form>
-            <button onClick={navigateToManageInventory}>Manage Inventory</button>
+            <button className='manage-inventories' onClick={navigateToManageInventory}>Manage Inventory</button>
             <ToastContainer
                 position="top-center"
                 autoClose={5000}
