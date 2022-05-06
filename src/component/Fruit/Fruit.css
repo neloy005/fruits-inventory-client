@@ -1,0 +1,67 @@
+.single-fruit-card {
+    background-color: rgba(9, 9, 38, 0.7);
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    min-height: 350px;
+}
+
+
+.single-fruit-card h4 {
+    font-size: 20px;
+}
+
+.single-fruit-card img {
+    width: 50%;
+    border-right: 2px solid white;
+    margin: 5%;
+
+}
+
+.fruit-details {
+    margin: 15px;
+}
+
+.price-and-stock {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.price-and-stock h5 {
+    font-size: 25px;
+}
+
+.manage-stock-btn {
+    width: 65%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: #84d8c2;
+    color: black;
+    border: none;
+    transition: color .5s ease-in-out, background-color .5s ease-in-out;
+}
+
+.manage-stock-btn:hover {
+    background-color: #367c69;
+    color: white;
+    transition: color .5s ease-in-out, background-color .5s ease-in-out;
+}
+
+@media only screen and (max-width: 888px) {
+    .single-fruit-card {
+        flex-direction: column;
+    }
+
+    .single-fruit-card img {
+        width: 100%;
+        border-right: 0;
+        border-bottom: 2px solid white;
+        margin: 0;
+        margin-bottom: 5%;
+
+
+    }
+}

@@ -14,7 +14,7 @@ import MyItem from './component/MyItem/MyItem';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App ubuntu-font">
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>

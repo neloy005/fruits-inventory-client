@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, XAxis, YAxis, Tooltip, LineChart, Line } from 'recharts';
 import banner from '../../images/fruits1.jpg';
 import Fruit from '../Fruit/Fruit';
 import './Home.css'
@@ -47,30 +46,34 @@ const Home = () => {
     return (
         <div>
             <div className='banner-container'>
-                <img className='banner' src={banner} alt="" />
-                <p className='tagline' ><span style={{ 'color': '' }}>Our fruit</span>  Inventory</p>
-                <p className='tagline-description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br /> Quam et eius blanditiis cumque doloribus nostrum.</p>
+                <div className='img-overlay'>
+
+                    <img className='banner' src={banner} alt="" />
+                </div>
+                <p className='tagline' ><span style={{ 'color': '' }}>Our <span style={{ 'color': 'yellow' }}><u> <i> Fruit</i>🛒</u></span></span> Inventory</p>
+
+                <p className='tagline-description'>Fresh <span style={{ 'color': 'yellow' }}>🍉Fruits🍋</span> collected from the garden, <br /> stored in mint and hyienic condition.</p>
             </div>
 
-            <h2>Inventory Overview:</h2>
-            <div className='inventory-overview-container'>
+            <h2 style={{ 'fontSize': '37px', 'marginBottom': '50px', 'fontWeight': '550' }}>Inventory Analysis📝:</h2>
+            <div className='inventory-analysis-container'>
                 <div>
-                    <h2>{totalFruit}</h2> <p>total <span style={{ 'color': 'yellow' }}>🍉Fruits🍋</span></p>
+                    <h2>{totalFruit}</h2> <p>Total <span style={{ 'color': 'yellow' }}>🍉Fruits🍋</span></p>
                 </div>
                 <div>
                     <h2>{totalSold}</h2> <p><span style={{ 'color': 'yellow' }}>🍉Fruits🍋</span> Sold</p>
                 </div>
                 <div>
-                    <h2>${totalPrice}</h2> <p>Expected<span style={{ 'color': 'yellow' }}>💵Revenue💰</span></p>
+                    <h2>${totalPrice}</h2> <p>Expected <span style={{ 'color': 'yellow' }}>💵Revenue💰</span></p>
                 </div>
                 <div>
-                    <h2>{totalSupplierArr.length}</h2> <p>Different<span style={{ 'color': 'yellow' }}>🧑‍🌾Suppliers🛒</span></p>
+                    <h2>{totalSupplierArr.length}</h2> <p>Different <span style={{ 'color': 'yellow' }}>🧑‍🌾Suppliers🛒</span></p>
                 </div>
             </div>
 
 
 
-            <h2>Inventory Overview:</h2>
+            <h2 style={{ 'fontSize': '37px', 'marginBottom': '50px', 'fontWeight': '550' }} className='inventory-overview'>Inventory Overview📌:</h2>
             <div className='fruit-container'>
                 {
                     fruitArrayForHome.map(fruit => <Fruit
@@ -79,10 +82,10 @@ const Home = () => {
                     ></Fruit>)
                 }
             </div>
-            <button onClick={navigateToManageInventory}>Manage Inventory</button>
+            <button className='manage-inventories' onClick={navigateToManageInventory}>Manage Inventories</button>
 
 
-            <div className='bar'>
+            {/* <div className='bar'>
                 <div className='bar-container'>
                     <h3>Sale vs month graph</h3>
                     <ResponsiveContainer width="100%" height="100%">
@@ -101,7 +104,7 @@ const Home = () => {
                     </ResponsiveContainer>
 
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };
