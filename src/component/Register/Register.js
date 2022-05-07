@@ -9,7 +9,7 @@ import useToken from '../../hooks/useToken';
 
 const Register = () => {
     const [errorMessage, setErrorMessage] = useState('');
-
+    let errorMsg;
     const navigate = useNavigate();
     const navigateToLogin = () => {
         navigate('/login');
@@ -19,12 +19,12 @@ const Register = () => {
         createUserWithEmailAndPassword, user, loading, error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const [updateProfile] = useUpdateProfile(auth);
     const [token] = useToken(user);
 
-    // if (error || updateError) {
-    //     toast(error.message);
-    // }
+    if (error) {
+        errorMsg = <p style={{ 'color': 'red' }}>Error: {error?.message}</p>
+    }
 
     const createNewUser = async (event) => {
         event.preventDefault();
@@ -34,6 +34,7 @@ const Register = () => {
 
         if (password.length < 6) {
             setErrorMessage('Password must be 6 charachters or more!');
+            return;
         }
         else {
             setErrorMessage('');
@@ -58,13 +59,14 @@ const Register = () => {
     return (
 
         <div className='login-container'>
-            <h2>Welcome to 🍉Fruits🍋 account registration</h2>
+            <h2 style={{ 'marginTop': '50px', 'marginBottom': '30px' }}>Welcome to 🍉Fruits🍋 account registration</h2>
 
             <form onSubmit={createNewUser}>
                 <input type="text" name='name' placeholder='Enter your name' required /> <br />
                 <input type="email" name='email' placeholder='Enter email' required /> <br />
                 <input type="password" name='password' placeholder='Enter password' required /> <br />
                 <p style={{ 'color': 'red' }}>{errorMessage} </p>
+                <p style={{ 'color': 'red' }}>{errorMsg} </p>
                 <input className='submit-btn' type="submit" value='Register' />
             </form>
             <br />

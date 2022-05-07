@@ -39,8 +39,8 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     background-color: rgba(23, 8, 66, 0.728);
-    padding-top: 38px;
-    padding-bottom: 38px;
+    padding-top: 65px;
+    padding-bottom: 65px;
     padding-right: 15px;
     padding-left: 15px;
     margin-bottom: 100px;
@@ -49,12 +49,12 @@
 }
 
 .inventory-analysis-container h2 {
-    font-size: 34px;
+    font-size: 50px;
     transition: font-size .5s ease-in-out
 }
 
 .inventory-analysis-container:hover h2 {
-    font-size: 50px;
+    font-size: 60px;
     transition: font-size .5s ease-in-out;
 }
 
@@ -102,6 +102,20 @@
     transition: color .5s ease-in-out, background-color .5s ease-in-out;
 }
 
+.how-we-operate {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-bottom: 100px;
+}
+
+.how-we-operate img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
 @media only screen and (max-width: 1100px) {
     .bar {
         width: 700px;
@@ -118,6 +132,10 @@
     .bar {
         width: 450px;
         height: 280px;
+    }
+
+    .how-we-operate {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -178,5 +196,9 @@
     .bar {
         width: 250px;
         height: 150px;
+    }
+
+    .how-we-operate {
+        grid-template-columns: repeat(1, 1fr);
     }
 }

@@ -4,6 +4,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import SingleFruitInTable from '../SingleFruitInTable/SingleFruitInTable';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import './ManageFullInventory.css';
 
 const ManageFullInventory = () => {
     const navigate = useNavigate();
@@ -47,17 +48,20 @@ const ManageFullInventory = () => {
     let count = 1;
     return (
         <div>
-            <h2>All Fruits</h2>
-            <h2>You can add new items in the inventory,
+            <h2 style={{ 'marginTop': '50px', 'marginBottom': '30px' }}>All <span style={{ 'color': 'yellow' }}>🍉Fruits🍋</span>:</h2>
+            <div className='add-new-fruit'>
+                <h2>You can add new items in the inventory
+                </h2> <br />
                 <button onClick={handleAddNewItem}>Add New Item</button>
-            </h2>
+            </div>
             <div>
-                <Table striped bordered hover variant="dark">
+                <Table responsive striped bordered hover variant="dark">
                     <thead>
                         <tr>
                             <th>#</th>
                             <th>Name</th>
                             <th>Quantity</th>
+                            <th>Sold</th>
                             <th>Supplier</th>
                             <th>Delete</th>
                         </tr>

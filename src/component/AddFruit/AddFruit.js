@@ -52,7 +52,7 @@ const AddFruit = () => {
                     <div className='add-fruit-form'>
                         <div style={{ 'width': '100%' }}>
                             <input type="text" name='name' placeholder='Fruit Name' required /> <br />
-                            <input type="email" name='email' value={user.email + ' 🔒'} disabled /> <br />
+                            <input type="email" name='email' value={user.email} disabled /> <br />
                             <input type="text" name='image' placeholder='Image URL' required /> <br />
                             <textarea type="text" name='description' placeholder='Description' required /> <br />
 

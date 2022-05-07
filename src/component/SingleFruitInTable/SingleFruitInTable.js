@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 
 const SingleFruitInTable = (props) => {
     // console.log(props);
-    const { _id, name, quantity, supplier } = props.fruit;
+    const { _id, name, quantity, supplier, sold } = props.fruit;
     return (
 
 
@@ -11,6 +11,7 @@ const SingleFruitInTable = (props) => {
             <td>{props.count}</td>
             <td>{name}</td>
             <td>{quantity}</td>
+            <td>{sold}</td>
             <td>{supplier}</td>
             <td><Button onClick={() => props.handleDeleteItem(_id)} variant="danger">Delete</Button></td>
         </tr>

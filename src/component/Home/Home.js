@@ -2,17 +2,28 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import banner from '../../images/fruits1.jpg';
 import Fruit from '../Fruit/Fruit';
-import './Home.css'
+import Operation from '../Operation/Operation';
+import './Home.css';
 
 const Home = () => {
     const navigate = useNavigate();
 
     const [fruits, setFruits] = useState([]);
+    const [operations, setOperations] = useState([]);
+
     useEffect(() => {
         fetch('http://localhost:5000/fruit')
             .then(res => res.json())
             .then(data => setFruits(data))
     }, [])
+
+
+    useEffect(() => {
+        fetch('http://localhost:5000/operation')
+            .then(res => res.json())
+            .then(data => setOperations(data))
+    }, [])
+
 
     let fruitArrayForHome = [];
     let count = 0;
@@ -83,27 +94,19 @@ const Home = () => {
             </div>
             <button className='manage-inventories' onClick={navigateToManageInventory}>Manage Inventories</button>
 
-
-            {/* <div className='bar'>
-                <div className='bar-container'>
-                    <h3>Sale vs month graph</h3>
-                    <ResponsiveContainer width="100%" height="100%">
-                        <LineChart
-                            // width={1200}
-                            // height={300}
-                            data={fruits}
-                        >
-                            <CartesianGrid strokeDasharray="1 3" />
-                            <XAxis dataKey="name" style={{ 'fontSize': '14px', 'fill': 'rgb(255,255,255)' }} />
-                            <YAxis style={{ 'fill': 'rgb(255,255,255)' }} />
-                            <Tooltip />
-                            <Legend />
-                            <Line type="monotone" dataKey="quantity" stroke="#8884d8" />
-                        </LineChart>
-                    </ResponsiveContainer>
-
+            <div>
+                <h2 style={{ 'fontSize': '37px', 'marginBottom': '50px', 'fontWeight': '550' }}>How We Operate 🗓️:</h2>
+                <div className='how-we-operate'>
+                    {
+                        operations.map(operation => <Operation
+                            key={operation._key}
+                            operation={operation}
+                        ></Operation>)
+                    }
                 </div>
-            </div> */}
+
+            </div>
+
         </div>
     );
 };

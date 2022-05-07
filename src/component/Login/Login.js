@@ -72,7 +72,7 @@ const Login = () => {
     }
     return (
         <div className='login-container'>
-
+            <h2 style={{ 'marginTop': '50px', 'marginBottom': '30px' }}>Login to <span style={{ 'color': 'yellow' }}>🍉Fruits🍋:</span></h2>
             <form onSubmit={handleLogin}>
                 <input type="email" name='email' placeholder='Enter email' ref={emailRef} required /> <br />
                 <input type="password" name='password' placeholder='Enter password' required /> <br />

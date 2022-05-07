@@ -1,0 +1,24 @@
+.add-new-fruit {
+    border: 1px solid white;
+    margin-right: 50px;
+    margin-left: 50px;
+    background-color: rgba(23, 8, 66, 0.728);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.add-new-fruit button {
+    width: 200px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    background-color: rgb(58, 188, 58);
+    border: none;
+    color: white;
+    border-radius: 10px;
+}
+
+.add-new-fruit button:hover {
+    background-color: rgb(41, 143, 41);
+
+}

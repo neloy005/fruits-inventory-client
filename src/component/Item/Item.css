@@ -1,6 +1,6 @@
 .single-item {
     border: 1px solid white;
-    background-color: rgba(0, 0, 0, 0.432);
+    background-color: rgba(23, 8, 66, 0.728);
     padding: 15px;
     transition: background-color 1.5s ease-in-out;
 }
@@ -51,7 +51,7 @@
 }
 
 .single-item:hover {
-    background-color: black;
+    background-color: rgb(23, 8, 66);
     transition: background-color 1.5s ease-in-out;
 }
 
