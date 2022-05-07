@@ -16,7 +16,7 @@ const Header = () => {
         <div>
             <Navbar id='navbar' bg="light" expand="lg">
                 <Container fluid>
-                    <Navbar.Brand href="#">🍉<span className='website-name'>Fruits</span>🍋</Navbar.Brand>
+                    <Navbar.Brand as={Link} to='/home'>🍉<span className='website-name'>Fruits</span>🍋</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -35,11 +35,14 @@ const Header = () => {
 
                             }
 
-                            <Nav.Link href="#action2">Link</Nav.Link>
+                            <Nav.Link as={Link} to='/blog'>Blog</Nav.Link>
                         </Nav>
                         {
                             user ?
-                                <Nav.Link onClick={handleSignOut}><Button variant="outline-success">Logout</Button></Nav.Link>
+                                <>
+                                    <p className='user-name' style={{ 'color': 'black' }}>🟢 {user.displayName}</p>
+                                    <Nav.Link onClick={handleSignOut}><Button variant="outline-success">Logout</Button></Nav.Link>
+                                </>
                                 :
                                 <Nav.Link as={Link} to='/login'><Button variant="outline-danger">Login</Button></Nav.Link>
                         }

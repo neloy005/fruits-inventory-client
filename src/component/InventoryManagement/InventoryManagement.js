@@ -8,6 +8,7 @@ const InventoryManagement = () => {
     const { id } = useParams();
     const [fruit, setFruit] = useState({});
     const [fruitCount, setFruitCount] = useState(0);
+    const [soldCount, setSoldCount] = useState(0);
     const [error, setError] = useState('');
     const [stockOut, setStockOut] = useState('');
     const navigate = useNavigate();
@@ -19,13 +20,14 @@ const InventoryManagement = () => {
             .then(data => {
                 setFruit(data);
                 setFruitCount(data.quantity);
+                setSoldCount(data.sold);
                 if (data.quantity === 0) {
                     setStockOut('Stock Out!');
                 }
             });
     }, [])
 
-
+    let sold = soldCount;
     let quantity = fruitCount;
     const handleDecrease = () => {
         if (quantity === 0) {
@@ -33,11 +35,13 @@ const InventoryManagement = () => {
             return;
         }
         quantity -= 1;
+        sold += 1;
         setFruitCount(quantity);
+        setSoldCount(sold);
         if (quantity === 0) {
             setStockOut('Stock Out!');
         }
-        const decreasedQuantity = { quantity: quantity };
+        const decreasedQuantity = { quantity: quantity, sold: sold };
         const url = `http://localhost:5000/fruit/${id}`;
         fetch(url, {
             method: 'PUT',
@@ -65,7 +69,7 @@ const InventoryManagement = () => {
             setError('');
             quantity = quantity + restock;
             setFruitCount(quantity);
-            const decreasedQuantity = { quantity: quantity };
+            const decreasedQuantity = { quantity: quantity, sold: soldCount };
             const url = `http://localhost:5000/fruit/${id}`;
             fetch(url, {
                 method: 'PUT',
@@ -108,7 +112,7 @@ const InventoryManagement = () => {
                     <hr />
                     <p style={{ 'fontSize': '20px' }}>{fruit.description}</p>
                     <div className='sold-and-price'>
-                        <div><h2>{fruit.sold}</h2> <p>sold so far</p></div>
+                        <div><h2>{soldCount}</h2> <p>sold so far</p></div>
                         <div><h2>${fruit.price}</h2> <p>per item</p></div>
                     </div>
 

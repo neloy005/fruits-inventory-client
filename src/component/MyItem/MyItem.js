@@ -19,8 +19,6 @@ const MyItem = () => {
         })
             .then(res => res.json())
             .then(data => {
-                // const newItem = data.filter(fruit => fruit.email === user.email);
-                console.log(data)
                 setItems(data);
             })
     }, [user])
@@ -55,7 +53,9 @@ const MyItem = () => {
     }
     return (
         <div className='my-items-container'>
-            <h2 style={{ 'marginBottom': '50px' }}>You've added {items.length} <span style={{ 'color': 'yellow' }}>🍉Fruits🍋</span>  so far</h2>
+            {
+                items.length > 0 && <h2 style={{ 'marginBottom': '50px' }}>You've added {items.length} <span style={{ 'color': 'yellow' }}>🍉Fruits🍋</span>  so far</h2>
+            }
             {
                 items.length > 0 ?
                     <div className='item-container'>

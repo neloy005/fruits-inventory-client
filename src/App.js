@@ -11,6 +11,7 @@ import RequireAuth from './component/RequireAuth/RequireAuth';
 import ManageFullInventory from './component/ManageFullInventory/ManageFullInventory';
 import AddFruit from './component/AddFruit/AddFruit';
 import MyItem from './component/MyItem/MyItem';
+import Blog from './component/Blog/Blog';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
         <Route path='/inventory/:id' element={
           <RequireAuth>

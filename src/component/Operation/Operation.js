@@ -2,7 +2,6 @@ import React from 'react';
 import './Operation.css'
 
 const Operation = (props) => {
-    console.log(props);
     const { name, description, image } = props.operation;
     return (
         <div className='single-operation'>

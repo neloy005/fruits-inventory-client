@@ -68,7 +68,7 @@ const Home = () => {
             <h2 style={{ 'fontSize': '37px', 'marginBottom': '50px', 'fontWeight': '550' }}>Inventory Analysis📝:</h2>
             <div className='inventory-analysis-container'>
                 <div>
-                    <h2>{totalFruit}</h2> <p>Total <span style={{ 'color': 'yellow' }}>🍉Fruits🍋</span></p>
+                    <h2>{totalFruit}</h2> <p><span style={{ 'color': 'yellow' }}>🍉Fruits🍋</span> In Stock</p>
                 </div>
                 <div>
                     <h2>{totalSold}</h2> <p><span style={{ 'color': 'yellow' }}>🍉Fruits🍋</span> Sold</p>
@@ -99,7 +99,7 @@ const Home = () => {
                 <div className='how-we-operate'>
                     {
                         operations.map(operation => <Operation
-                            key={operation._key}
+                            key={operation._id}
                             operation={operation}
                         ></Operation>)
                     }
