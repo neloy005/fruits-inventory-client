@@ -14,7 +14,7 @@ const InventoryManagement = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const url = `http://localhost:5000/fruit/${id}`;
+        const url = `https://rocky-ravine-30128.herokuapp.com/fruit/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -42,7 +42,7 @@ const InventoryManagement = () => {
             setStockOut('Stock Out!');
         }
         const decreasedQuantity = { quantity: quantity, sold: sold };
-        const url = `http://localhost:5000/fruit/${id}`;
+        const url = `https://rocky-ravine-30128.herokuapp.com/fruit/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -70,7 +70,7 @@ const InventoryManagement = () => {
             quantity = quantity + restock;
             setFruitCount(quantity);
             const decreasedQuantity = { quantity: quantity, sold: soldCount };
-            const url = `http://localhost:5000/fruit/${id}`;
+            const url = `https://rocky-ravine-30128.herokuapp.com/fruit/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {

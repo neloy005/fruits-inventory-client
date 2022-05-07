@@ -6,7 +6,7 @@ const useToken = user => {
         //JWT
         const email = user?.user?.email;
         if (email) {
-            fetch('http://localhost:5000/login', {
+            fetch('https://rocky-ravine-30128.herokuapp.com/login', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'

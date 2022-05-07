@@ -11,7 +11,7 @@ const MyItem = () => {
     const [items, setItems] = useState([]);
     useEffect(() => {
         const email = user?.email;
-        const url = `http://localhost:5000/item?email=${email}`;
+        const url = `https://rocky-ravine-30128.herokuapp.com/item?email=${email}`;
         fetch(url, {
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -28,7 +28,7 @@ const MyItem = () => {
         const proceed = window.confirm('Are you sure to delete?');
         if (proceed) {
             console.log('Deleting', id);
-            const url = `http://localhost:5000/fruit/${id}`;
+            const url = `https://rocky-ravine-30128.herokuapp.com/fruit/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

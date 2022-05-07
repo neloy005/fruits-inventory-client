@@ -12,14 +12,14 @@ const Home = () => {
     const [operations, setOperations] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/fruit')
+        fetch('https://rocky-ravine-30128.herokuapp.com/fruit')
             .then(res => res.json())
             .then(data => setFruits(data))
     }, [])
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/operation')
+        fetch('https://rocky-ravine-30128.herokuapp.com/operation')
             .then(res => res.json())
             .then(data => setOperations(data))
     }, [])

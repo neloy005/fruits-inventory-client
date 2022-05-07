@@ -19,7 +19,7 @@ const AddFruit = () => {
         const supplier = event.target.supplier.value;
         const sold = event.target.sold.value;
         const fruitInfo = { name, email, image, description, price, quantity, supplier, sold };
-        fetch('http://localhost:5000/fruitinfo', {
+        fetch('https://rocky-ravine-30128.herokuapp.com/fruitinfo', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
