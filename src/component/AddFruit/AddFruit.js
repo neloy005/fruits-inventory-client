@@ -44,30 +44,37 @@ const AddFruit = () => {
     }
 
     return (
-        <div>
-            <h2>Add fruit</h2>
-            <form onSubmit={handleAddFruit} >
-                <div className='add-fruit-form'>
-                    <div>
-                        <input type="text" name='name' placeholder='Fruit Name' required /> <br />
-                        <input type="email" name='email' value={user.email} disabled /> <br />
-                        <input type="text" name='image' placeholder='Image URL' required /> <br />
-                        <textarea type="text" name='description' placeholder='Description' required /> <br />
+        <div className='add-fruit-form-page'>
+            <h2 style={{ 'marginTop': '50px', 'marginBottom': '30px' }}>Add a new <span style={{ 'color': 'yellow' }}>🍉Fruit🍋</span> to the Inventory:</h2>
+            <div className='add-fruit-form-container'>
+                <h3 style={{ 'marginBottom': '25px' }}>Which Fruit you gonna add today? 🍇 🍒 🍓 🥑 🍐 🥝</h3>
+                <form onSubmit={handleAddFruit} >
+                    <div className='add-fruit-form'>
+                        <div style={{ 'width': '100%' }}>
+                            <input type="text" name='name' placeholder='Fruit Name' required /> <br />
+                            <input type="email" name='email' value={user.email + ' 🔒'} disabled /> <br />
+                            <input type="text" name='image' placeholder='Image URL' required /> <br />
+                            <textarea type="text" name='description' placeholder='Description' required /> <br />
 
+                        </div>
+                        <div className='vr-line'>
+
+                        </div>
+                        <div style={{ 'width': '100%' }}>
+                            <input type="number" name='price' placeholder='Price' required /> <br />
+                            <input type="number" name='quantity' placeholder='Enter quantity' required /> <br />
+                            <input type="text" name='supplier' placeholder='Supplier Name' required /> <br />
+                            <input type="number" name='sold' placeholder='Sold Amount' required /> <br />
+
+                        </div>
                     </div>
-                    <div>
-                        <input type="number" name='price' placeholder='Price' required /> <br />
-                        <input type="number" name='quantity' placeholder='Enter quantity' required /> <br />
-                        <input type="text" name='supplier' placeholder='Supplier Name' required /> <br />
-                        <input type="number" name='sold' placeholder='Sold Amount' required /> <br />
 
-                    </div>
-                </div>
-
-                <input className='submit-btn' type="submit" value='Add' />
+                    <input className='submit-btn' type="submit" value='Add' />
 
 
-            </form>
+                </form>
+            </div>
+
             <ToastContainer
                 position="top-center"
                 autoClose={5000}

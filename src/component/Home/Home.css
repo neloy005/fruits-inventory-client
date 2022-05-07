@@ -38,7 +38,7 @@
 .inventory-analysis-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    background-color: rgba(9, 9, 38, 0.835);
+    background-color: rgba(23, 8, 66, 0.728);
     padding-top: 38px;
     padding-bottom: 38px;
     padding-right: 15px;

@@ -1,4 +1,72 @@
+.add-fruit-form-page {
+    min-height: 650px;
+}
+
+.add-fruit-form-container {
+    border: 1px solid white;
+    padding-top: 34px;
+    padding-bottom: 34px;
+    background-color: rgba(23, 8, 66, 0.728);
+    margin-right: 30px;
+    margin-left: 30px;
+    font-size: 18px;
+    color: white;
+    margin-bottom: 30px;
+
+}
+
+
 .add-fruit-form {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 5fr 1fr 5fr;
+    justify-items: center;
+}
+
+.add-fruit-form input {
+    margin-bottom: 7px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    color: white;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid white;
+}
+
+.add-fruit-form input:not([type="submit"]) {
+    width: 80%;
+    padding-left: 5px;
+    background-color: transparent;
+}
+
+.add-fruit-form textarea {
+    margin-bottom: 7px;
+    width: 80%;
+    color: white;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid white;
+}
+
+.add-fruit-form input:focus {
+    background-color: rgba(255, 255, 255, 0.144);
+}
+
+.add-fruit-form textarea:focus {
+    background-color: rgba(255, 255, 255, 0.144);
+}
+
+.vr-line {
+    background-color: white;
+    width: 2px;
+}
+
+@media only screen and (max-width: 750px) {
+    .add-fruit-form {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .vr-line {
+        display: none;
+    }
 }
