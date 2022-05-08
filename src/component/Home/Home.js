@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useFruits from '../../hooks/useFruits';
 import banner from '../../images/fruits1.jpg';
 import Fruit from '../Fruit/Fruit';
 import Operation from '../Operation/Operation';
@@ -7,15 +8,15 @@ import './Home.css';
 
 const Home = () => {
     const navigate = useNavigate();
-
-    const [fruits, setFruits] = useState([]);
+    const [fruits, setFruits] = useFruits();
+    // const [fruits, setFruits] = useState([]);
     const [operations, setOperations] = useState([]);
 
-    useEffect(() => {
-        fetch('https://rocky-ravine-30128.herokuapp.com/fruit')
-            .then(res => res.json())
-            .then(data => setFruits(data))
-    }, [])
+    // useEffect(() => {
+    //     fetch('https://rocky-ravine-30128.herokuapp.com/fruit')
+    //         .then(res => res.json())
+    //         .then(data => setFruits(data))
+    // }, [])
 
 
     useEffect(() => {

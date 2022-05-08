@@ -20,7 +20,7 @@ const Blog = () => {
                 <div>
                     <h3>Q3:  Differences between sql and nosql databases?</h3>
                     <p>Ans: 1. SQL database store data in tables but nosql databases store data as object or json. <br />
-                        2. sql is more structured but  nosql is flexible.
+                        2. sql is more structured but  nosql is flexible. <br />
                         3. sql example: Mysql, oracle etc. but nosql example mongodb. <br />
                         4. sql databases are scalable vertically but nosql is scalable horizontally.</p>
                 </div>

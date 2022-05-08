@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { toast, ToastContainer } from 'react-toastify';
 import SingleFruitInTable from '../SingleFruitInTable/SingleFruitInTable';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import './ManageFullInventory.css';
+import useFruits from '../../hooks/useFruits';
 
 const ManageFullInventory = () => {
     const navigate = useNavigate();
-    const [fruits, setFruits] = useState([]);
-    useEffect(() => {
-        fetch('https://rocky-ravine-30128.herokuapp.com/fruit')
-            .then(res => res.json())
-            .then(data => setFruits(data))
-    }, [])
+    const [fruits, setFruits] = useFruits();
+    // const [fruits, setFruits] = useState([]);
+    // useEffect(() => {
+    //     fetch('https://rocky-ravine-30128.herokuapp.com/fruit')
+    //         .then(res => res.json())
+    //         .then(data => setFruits(data))
+    // }, [])
 
     const handleDeleteItem = (id) => {
         const proceed = window.confirm('Are you sure to delete?');
