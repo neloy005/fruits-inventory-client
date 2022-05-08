@@ -2,11 +2,12 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 
 const SingleFruitInTable = (props) => {
-    // console.log(props);
     const { _id, name, quantity, supplier, sold } = props.fruit;
     return (
 
-
+        ///////////////////////////////////
+        // SINGLE TABLE ROW FOR FRUIT INFO 
+        //////////////////////////////////
         <tr>
             <td>{props.count}</td>
             <td>{name}</td>

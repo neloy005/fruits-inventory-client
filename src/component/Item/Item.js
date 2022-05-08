@@ -2,11 +2,13 @@ import React from 'react';
 import './Item.css';
 
 const Item = (props) => {
-    // console.log(props);
     const { _id, name, image, quantity, description, price, supplier, sold } = props.item;
     return (
         <div className='single-item'>
 
+            {/* //////////////////////////////////  */}
+            {/* SINGLE ITEM FOR USERS MY ITEM  */}
+            {/* //////////////////////////////////  */}
             <img src={image} alt="" />
             <h2>{name}</h2>
             <h4>Supplied by '{supplier}'</h4>

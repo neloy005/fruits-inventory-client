@@ -48,6 +48,11 @@ const AddFruit = () => {
             <h2 style={{ 'marginTop': '50px', 'marginBottom': '30px' }}>Add a new <span style={{ 'color': 'yellow' }}>🍉Fruit🍋</span> to the Inventory:</h2>
             <div className='add-fruit-form-container'>
                 <h3 style={{ 'marginBottom': '25px' }}>Which Fruit you gonna add today? 🍇 🍒 🍓 🥑 🍐 🥝</h3>
+
+                {/* /////////////////////////////////// */}
+                {/* form for adding new fruit  */}
+                {/* /////////////////////////////////// */}
+
                 <form onSubmit={handleAddFruit} >
                     <div className='add-fruit-form'>
                         <div style={{ 'width': '100%' }}>

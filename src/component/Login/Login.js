@@ -32,6 +32,9 @@ const Login = () => {
         sendPasswordResetEmail,
     ] = useSendPasswordResetEmail(auth);
 
+    ////////////////////////////////////
+    // GET JWT TOKEN
+    ////////////////////////////////////
     const [token] = useToken(user1 || user);
 
     if (token) {
@@ -49,6 +52,9 @@ const Login = () => {
         navigate('/register');
     }
 
+    ////////////////////////////////////
+    // HANDLE LOGINWITH EMAIL  PASSWORD 
+    ////////////////////////////////////
     const handleLogin = async event => {
         event.preventDefault();
         const email = event.target.email.value;
@@ -56,6 +62,9 @@ const Login = () => {
         await signInWithEmailAndPassword(email, password);
     }
 
+    /////////////////////////////
+    // HANDLE RESET PASSWORD 
+    /////////////////////////////
     const resetPassword = async () => {
         const email = emailRef.current.value;
         if (email) {
@@ -70,6 +79,10 @@ const Login = () => {
     return (
         <div className='login-container'>
             <h2 style={{ 'marginTop': '50px', 'marginBottom': '30px' }}>Login to <span style={{ 'color': 'yellow' }}>🍉Fruits🍋:</span></h2>
+
+            {/* //////////////////////////  */}
+            {/* USER LOGIN FORM  */}
+            {/* //////////////////////////  */}
             <form onSubmit={handleLogin}>
                 <input type="email" name='email' placeholder='Enter email' ref={emailRef} required /> <br />
                 <input type="password" name='password' placeholder='Enter password' required /> <br />
@@ -82,6 +95,9 @@ const Login = () => {
             <p>New here? <span style={{ 'color': 'blue', 'cursor': 'pointer' }} onClick={navigateToRegister}>Register first</span></p>
             <h4>Or</h4>
             <br />
+            {/* //////////////////////////  */}
+            {/* SOCIAL LOGIN BUTTON  */}
+            {/* //////////////////////////  */}
             <div className='google-signin-container' onClick={() => signInWithGoogle()}>
                 <img style={{ 'width': '20px' }} src={google} alt="" />
                 <span>Sign in with google</span>

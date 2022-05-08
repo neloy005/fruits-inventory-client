@@ -30,20 +30,3 @@ const useToken = user => {
     return [token];
 }
 export default useToken;
-
-
-
-// fetch('https://rocky-ravine-30128.herokuapp.com/login', {
-//     method: "POST",
-//     headers: {
-//         'content-type': 'application/json'
-//     },
-//     body: JSON.stringify({ email })
-// })
-//     .then(res => res.json())
-//     .then(data => {
-//         // console.log('hi', data);
-//         setToken(data.accessToken);
-//         localStorage.setItem('accessToken', data.accessToken);
-
-//     })

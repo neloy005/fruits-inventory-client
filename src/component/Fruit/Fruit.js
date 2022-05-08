@@ -4,7 +4,6 @@ import './Fruit.css';
 
 
 const Fruit = (props) => {
-    // console.log(props.fruit)
     const { _id, name, image, description, price, quantity, supplier } = props.fruit;
     const navigate = useNavigate();
 
@@ -15,6 +14,10 @@ const Fruit = (props) => {
 
     return (
         <div>
+
+            {/* ///////////////////////////////////// */}
+            {/* A single fruit card for home */}
+            {/* ///////////////////////////////////// */}
 
             <div className='single-fruit-card'>
                 <img src={image} alt="" />

@@ -9,13 +9,11 @@ import useFruits from '../../hooks/useFruits';
 const ManageFullInventory = () => {
     const navigate = useNavigate();
     const [fruits, setFruits] = useFruits();
-    // const [fruits, setFruits] = useState([]);
-    // useEffect(() => {
-    //     fetch('https://rocky-ravine-30128.herokuapp.com/fruit')
-    //         .then(res => res.json())
-    //         .then(data => setFruits(data))
-    // }, [])
 
+
+    ///////////////////////////////////////
+    // DELETE SPECIFIC FRUIT BY THEIR ID 
+    ///////////////////////////////////////
     const handleDeleteItem = (id) => {
         const proceed = window.confirm('Are you sure to delete?');
         if (proceed) {
@@ -27,7 +25,6 @@ const ManageFullInventory = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        // console.log(data);
                         toast.success('Deleted successfully!', {
                             position: "top-right",
                             autoClose: 5000,
@@ -55,6 +52,10 @@ const ManageFullInventory = () => {
                 </h2> <br />
                 <button onClick={handleAddNewItem}>Add New Item</button>
             </div>
+
+            {/* ////////////////////////////////////////////////////////  */}
+            {/* TABLE TO SHOW ALL FRUITS AVAILABLE IN INVENTORY  */}
+            {/* ////////////////////////////////////////////////////////  */}
             <div>
                 <Table responsive striped bordered hover variant="dark">
                     <thead>

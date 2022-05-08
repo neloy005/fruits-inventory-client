@@ -20,12 +20,19 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const [updateProfile] = useUpdateProfile(auth);
+
+    //////////////////////////
+    // GET JWT TOKEN 
+    ///////////////////////
     const [token] = useToken(user);
 
     if (error) {
         errorMsg = <p style={{ 'color': 'red' }}>Error: {error?.message}</p>
     }
 
+    ///////////////////////
+    // CREATE NEW USER 
+    ///////////////////////
     const createNewUser = async (event) => {
         event.preventDefault();
         const name = event.target.name.value;
@@ -58,6 +65,9 @@ const Register = () => {
         <div className='login-container'>
             <h2 style={{ 'marginTop': '50px', 'marginBottom': '30px' }}>Welcome to 🍉Fruits🍋 account registration</h2>
 
+            {/* //////////////////////////////  */}
+            {/* USER REGISTRATION FORM  */}
+            {/* /////////////////////////////// */}
             <form onSubmit={createNewUser}>
                 <input type="text" name='name' placeholder='Enter your name' required /> <br />
                 <input type="email" name='email' placeholder='Enter email' required /> <br />

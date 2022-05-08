@@ -13,6 +13,10 @@ const InventoryManagement = () => {
     const [stockOut, setStockOut] = useState('');
     const navigate = useNavigate();
 
+
+    ///////////////////////////////////
+    // GET FRUIT INFO WITH SPECIFIC ID 
+    ///////////////////////////////////
     useEffect(() => {
         const url = `https://rocky-ravine-30128.herokuapp.com/fruit/${id}`;
         fetch(url)
@@ -27,9 +31,13 @@ const InventoryManagement = () => {
             });
     }, [])
 
+
+    //////////////////////////////////////////////////////////////
+    // FUNCTION TO DECREASE DELIVERED COUND AND INCREASE SOLD NUMBER 
+    //////////////////////////////////////////////////////////////
     let sold = soldCount;
     let quantity = fruitCount;
-    const handleDecrease = () => {
+    const handleDeliveredAndSold = () => {
         if (quantity === 0) {
             setStockOut('Stock Out!');
             return;
@@ -56,6 +64,9 @@ const InventoryManagement = () => {
             })
     }
 
+    //////////////////////////////////////////////////////////////
+    // FUNCTION TO HANDLE RESTOCK AMOUNT 
+    //////////////////////////////////////////////////////////////
     const handleRestock = event => {
         event.preventDefault();
         const restockValue = event.target.restock.value;
@@ -80,8 +91,6 @@ const InventoryManagement = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    // console.log('success', data);
-
                     toast.success(`restocked ${restock} items!`, {
                         position: "top-center",
                         autoClose: 5000,
@@ -103,6 +112,9 @@ const InventoryManagement = () => {
 
     return (
         <div style={{ 'minHeight': '650px' }} className='single-fruit'>
+            {/* /////////////////////////////////  */}
+            {/* FRUIT INFO SECTION  */}
+            {/* /////////////////////////////////  */}
             <h2 style={{ 'marginTop': '50px', 'marginBottom': '30px' }}>Manage {fruit.name} Stock📝:</h2>
             <div className='single-inventory-fruit'>
                 <img src={fruit.image} alt="" />
@@ -118,10 +130,14 @@ const InventoryManagement = () => {
 
 
                 </div>
+                {/* /////////////////////////////////  */}
+                {/* DELIVERED AND RESTOCK SECTION  */}
+                {/* /////////////////////////////////  */}
+
                 <div className='delivery-and-restock'>
                     <div><h2>{fruitCount}</h2><p>in stock</p></div>
                     <p style={{ 'color': 'red' }}>{stockOut}</p>
-                    <button className='delivered-btn' onClick={handleDecrease}>Delivered</button>
+                    <button className='delivered-btn' onClick={handleDeliveredAndSold}>Delivered</button>
                     <hr />
                     <form onSubmit={handleRestock}>
                         <input style={{ 'width': '85%', 'borderRadius': '10px', 'padding': '9px 2px', 'fontSize': '18px' }} type="number" name='restock' placeholder='Enter restock amount' /> <br />

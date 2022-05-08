@@ -9,22 +9,22 @@ import './Home.css';
 const Home = () => {
     const navigate = useNavigate();
     const [fruits, setFruits] = useFruits();
-    // const [fruits, setFruits] = useState([]);
     const [operations, setOperations] = useState([]);
 
-    // useEffect(() => {
-    //     fetch('https://rocky-ravine-30128.herokuapp.com/fruit')
-    //         .then(res => res.json())
-    //         .then(data => setFruits(data))
-    // }, [])
-
-
+    //////////////////////////////////////////
+    // Fetching data for how we operate section 
+    ///////////////////////////////////////////
     useEffect(() => {
         fetch('https://rocky-ravine-30128.herokuapp.com/operation')
             .then(res => res.json())
             .then(data => setOperations(data))
     }, [])
 
+
+
+    // ////////////////////////////////////////////
+    // Calculation for inventory analysis section 
+    // ////////////////////////////////////////////
 
     let fruitArrayForHome = [];
     let count = 0;
@@ -56,9 +56,13 @@ const Home = () => {
 
     return (
         <div>
+
+            {/* ///////////////////////////  */}
+            {/* WEBSITE BANNER */}
+            {/* ///////////////////////////  */}
+
             <div className='banner-container'>
                 <div className='img-overlay'>
-
                     <img className='banner' src={banner} alt="" />
                 </div>
                 <p className='tagline' ><span style={{ 'color': '' }}>Our <span style={{ 'color': 'yellow' }}><u> <i> Fruit</i>🛒</u></span></span> Inventory</p>
@@ -66,6 +70,9 @@ const Home = () => {
                 <p className='tagline-description'>Fresh <span style={{ 'color': 'yellow' }}>🍉Fruits🍋</span> collected from the garden, <br /> stored in mint and hyienic condition.</p>
             </div>
 
+            {/* ///////////////////////////////////////  */}
+            {/* INVENTORY ANALYSIS SECTION   */}
+            {/* ///////////////////////////////////////  */}
             <h2 style={{ 'fontSize': '37px', 'marginBottom': '50px', 'fontWeight': '550' }}>Inventory Analysis📝:</h2>
             <div className='inventory-analysis-container'>
                 <div>
@@ -82,7 +89,9 @@ const Home = () => {
                 </div>
             </div>
 
-
+            {/* ///////////////////////////////////////  */}
+            {/* INVENTORY OVERVIEW WITH 6 CARDS   */}
+            {/* ///////////////////////////////////////  */}
 
             <h2 style={{ 'fontSize': '37px', 'marginBottom': '50px', 'fontWeight': '550' }} className='inventory-overview'>Inventory Overview📌:</h2>
             <div className='fruit-container'>
@@ -94,8 +103,11 @@ const Home = () => {
                 }
             </div>
             <button className='manage-inventories' onClick={navigateToManageInventory}>Manage Inventories</button>
-
             <div>
+
+                {/* ///////////////////////////////////////  */}
+                {/* HOW WE OPERATE SECTION   */}
+                {/* ///////////////////////////////////////  */}
                 <h2 style={{ 'fontSize': '37px', 'marginBottom': '50px', 'fontWeight': '550' }}>How We Operate 🗓️:</h2>
                 <div className='how-we-operate'>
                     {
@@ -105,9 +117,7 @@ const Home = () => {
                         ></Operation>)
                     }
                 </div>
-
             </div>
-
         </div>
     );
 };
