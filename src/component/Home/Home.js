@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import useFruits from '../../hooks/useFruits';
 import banner from '../../images/fruits1.jpg';
 import Fruit from '../Fruit/Fruit';
+import Loading from '../Loading/Loading';
 import Operation from '../Operation/Operation';
 import './Home.css';
 
@@ -23,7 +24,7 @@ const Home = () => {
 
 
     // ////////////////////////////////////////////
-    // Calculation for inventory analysis section 
+    // Calculation 6 fruits 
     // ////////////////////////////////////////////
 
     let fruitArrayForHome = [];
@@ -35,6 +36,10 @@ const Home = () => {
             break;
         }
     }
+
+    // ////////////////////////////////////////////
+    // Calculation for inventory analysis section 
+    // ////////////////////////////////////////////
 
     let totalFruit = 0;
     let totalSold = 0;
@@ -52,7 +57,6 @@ const Home = () => {
     const navigateToManageInventory = () => {
         navigate('/manageinventory');
     }
-
 
     return (
         <div>
@@ -94,14 +98,20 @@ const Home = () => {
             {/* ///////////////////////////////////////  */}
 
             <h2 style={{ 'fontSize': '37px', 'marginBottom': '50px', 'fontWeight': '550' }} className='inventory-overview'>Inventory Overview📌:</h2>
-            <div className='fruit-container'>
-                {
-                    fruitArrayForHome.map(fruit => <Fruit
-                        key={fruit._id}
-                        fruit={fruit}
-                    ></Fruit>)
-                }
-            </div>
+            {
+                totalSupplierArr.length <= 6 ?
+                    <Loading></Loading>
+                    :
+                    <div className='fruit-container'>
+                        {
+                            fruitArrayForHome.map(fruit => <Fruit
+                                key={fruit._id}
+                                fruit={fruit}
+                            ></Fruit>)
+                        }
+                    </div>
+            }
+
             <button className='manage-inventories' onClick={navigateToManageInventory}>Manage Inventories</button>
             <div>
 
