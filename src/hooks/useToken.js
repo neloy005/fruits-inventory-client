@@ -5,24 +5,45 @@ const useToken = user => {
     useEffect(() => {
         //JWT
         const email = user?.user?.email;
-        if (email) {
-            fetch('https://rocky-ravine-30128.herokuapp.com/login', {
-                method: "POST",
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify({ email })
-            })
-                .then(res => res.json())
-                .then(data => {
-                    // console.log('hi', data);
-                    setToken(data.accessToken);
-                    localStorage.setItem('accessToken', data.accessToken);
+        console.log('token er jnno aisi', email);
 
+        const getToken = async () => {
+            const email = user?.user?.email;
+            if (email) {
+                const res = await fetch('https://rocky-ravine-30128.herokuapp.com/login', {
+
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({ email })
                 })
+                const data = await res.json();
+                console.log(data)
+                setToken(data.accessToken);
+                localStorage.setItem('accessToken', data.accessToken);
+            }
         }
+        getToken();
     }, [user])
 
     return [token];
 }
 export default useToken;
+
+
+
+// fetch('https://rocky-ravine-30128.herokuapp.com/login', {
+//     method: "POST",
+//     headers: {
+//         'content-type': 'application/json'
+//     },
+//     body: JSON.stringify({ email })
+// })
+//     .then(res => res.json())
+//     .then(data => {
+//         // console.log('hi', data);
+//         setToken(data.accessToken);
+//         localStorage.setItem('accessToken', data.accessToken);
+
+//     })

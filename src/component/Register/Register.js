@@ -45,9 +45,6 @@ const Register = () => {
 
     }
 
-    // if (user) {
-    //     toast('email varification sent');
-    // }
     if (token) {
         navigate('/');
     }

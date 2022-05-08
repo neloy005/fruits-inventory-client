@@ -9,6 +9,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../Loading/Loading';
 import useToken from '../../hooks/useToken';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -38,9 +39,6 @@ const Login = () => {
         navigate(from, { replace: true });
     }
 
-    if (user) {
-        navigate(from, { replace: true });
-    }
 
     if (error || error1) {
         errorMessage = <p style={{ 'color': 'red' }}>Error: {error?.message}{error1?.message}</p>
