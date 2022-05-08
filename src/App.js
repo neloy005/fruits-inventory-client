@@ -12,6 +12,7 @@ import ManageFullInventory from './component/ManageFullInventory/ManageFullInven
 import AddFruit from './component/AddFruit/AddFruit';
 import MyItem from './component/MyItem/MyItem';
 import Blog from './component/Blog/Blog';
+import About from './component/Header/About/About';
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
+        <Route path='/about' element={<About></About>}></Route>
+
         <Route path='*' element={<NotFound></NotFound>}></Route>
         <Route path='/inventory/:id' element={
           <RequireAuth>
