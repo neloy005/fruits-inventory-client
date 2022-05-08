@@ -18,8 +18,6 @@ const Item = (props) => {
             </div>
 
             <h3>${price}</h3>
-
-
             <p>{description}</p>
             <button className='dlt-item-btn' onClick={() => props.handleDeleteItem(_id)}>Delete 🗑️</button>
         </div>

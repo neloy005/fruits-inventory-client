@@ -62,10 +62,10 @@ const MyItem = () => {
             {
                 items.length > 0 && <h2 style={{ 'marginBottom': '50px' }}>You've added {items.length} <span style={{ 'color': 'yellow' }}>🍉Fruits🍋</span>  so far</h2>
             }
+
             {/* //////////////////////////////////////////////////////  */}
             {/* SHOW ADDED PRODUCTS OF A USER IN MY ITEM  */}
             {/* //////////////////////////////////////////////////////  */}
-
             {
                 items.length > 0 ?
                     <div className='item-container'>
